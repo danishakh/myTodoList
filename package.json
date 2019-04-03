@@ -1,0 +1,40 @@
+{
+  "name": "mytodolist",
+  "version": "1.0.0",
+  "description": "simple todo list app developed using mern stack",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build": "node scripts/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "installDeps": "yarn && cd client && yarn"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.12",
+    "morgan": "^1.9.1",
+    "npm": "^6.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danishakh/myTodoList.git"
+  },
+  "keywords": [
+    "todolist"
+  ],
+  "author": "Danish Akhtar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danishakh/myTodoList/issues"
+  },
+  "homepage": "https://github.com/danishakh/myTodoList#readme"
+}
