@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const routes = require("./routes");
+//const routes = require("./routes");
 const logger = require("morgan");
 var cors = require('cors');
 
@@ -41,7 +41,7 @@ app.use(express.static("client/build"));
 app.use(cors());
 
 // Add routes
-app.use(routes);
+//app.use(routes);
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
