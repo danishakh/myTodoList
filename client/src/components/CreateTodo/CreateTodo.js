@@ -105,7 +105,6 @@ export default class CreateTodo extends Component {
                     </Grid>
                 </form>
             </div>
-
         )
     }
 }
