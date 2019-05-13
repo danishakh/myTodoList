@@ -40,7 +40,7 @@ export default class CreateTodo extends Component {
 
         e.preventDefault();
 
-        console.log(`Form submitted:`);
+        console.log(`Form submitted!`);
         console.log(`Todo Description: ${this.state.todo_description}`);
         console.log(`Todo Responsible: ${this.state.todo_responsible}`);
         console.log(`Todo Priority: ${this.state.todo_priority}`);
@@ -55,56 +55,60 @@ export default class CreateTodo extends Component {
 
     render() {
         return (
-            <div style={{marginTop: 10}}>
-                <Typography variant="h6" gutterBottom>
-                    Create Todo
-                </Typography>
+            <Grid container justify="center">
                 
-                <form onSubmit={this.onSubmitHandler}>
-                    <Grid container spacing={24}>
-                        <Grid item xs={12}>
-                            <TextField
-                                id="todo_description"
-                                name="description"
-                                label="Description"
-                                fullWidth
-                                value={this.state.todo_description}
-                                onChange={this.onChangeHandler}
-                            />
-                        </Grid>
+                <Grid container justify="center" style={{marginTop: 20}}>
+                    <Typography variant="h4" gutterBottom>
+                        Create Todo
+                    </Typography>
+                </Grid>
 
-                        <Grid item xs={12}>
-                            <TextField
-                                id="todo_responsible"
-                                name="responsible"
-                                label="Responsible"
-                                fullWidth
-                                value={this.state.todo_responsible}
-                                onChange={this.onChangeHandler}
-                            />
-                        </Grid>
+                <Grid container justify="center">
+                    <form onSubmit={this.onSubmitHandler}>
+                        <Grid container spacing={24}>
+                            <Grid item xs={12}>
+                                <TextField
+                                    id="todo_description"
+                                    name="description"
+                                    label="Description"
+                                    fullWidth
+                                    value={this.state.todo_description}
+                                    onChange={this.onChangeHandler}
+                                />
+                            </Grid>
 
-                        <Grid item xs={12}>
-                                <FormControlLabel 
-                                    control={<Radio checked={this.state.todo_priority==='low'} onChange={(e)=>this.setState({todo_priority: "low"})}/>} 
-                                    label="Low" />
-                                <FormControlLabel 
-                                    control={<Radio checked={this.state.todo_priority==='medium'} onChange={(e)=>this.setState({todo_priority: "medium"})}/>} 
-                                    label="Medium" />
-                                <FormControlLabel 
-                                    control={<Radio checked={this.state.todo_priority==='high'} onChange={(e)=>this.setState({todo_priority: "high"})} />} 
-                                    label="High" />
+                            <Grid item xs={12}>
+                                <TextField
+                                    id="todo_responsible"
+                                    name="responsible"
+                                    label="Responsible"
+                                    fullWidth
+                                    value={this.state.todo_responsible}
+                                    onChange={this.onChangeHandler}
+                                />
+                            </Grid>
 
+                            <Grid item xs={12}>
+                                    <FormControlLabel
+                                        control={<Radio checked={this.state.todo_priority==='low'} onChange={(e)=>this.setState({todo_priority: "low"})}/>} 
+                                        label="Low" />
+                                    <FormControlLabel 
+                                        control={<Radio checked={this.state.todo_priority==='medium'} onChange={(e)=>this.setState({todo_priority: "medium"})}/>} 
+                                        label="Medium" />
+                                    <FormControlLabel 
+                                        control={<Radio checked={this.state.todo_priority==='high'} onChange={(e)=>this.setState({todo_priority: "high"})} />} 
+                                        label="High" />
+                            </Grid>
+                            
+                            <Grid item xs={12}>
+                                <Button variant="contained" color="primary" type="submit">
+                                    Submit
+                                </Button>
+                            </Grid>
                         </Grid>
-
-                        <Grid item xs={12}>
-                            <Button variant="contained" color="primary" type="submit">
-                                Submit
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </form>
-            </div>
+                    </form>
+                </Grid>
+            </Grid>
         )
     }
 }
