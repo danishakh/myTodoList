@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -45,6 +46,16 @@ export default class CreateTodo extends Component {
         console.log(`Todo Responsible: ${this.state.todo_responsible}`);
         console.log(`Todo Priority: ${this.state.todo_priority}`);
         
+        const newTodo = {
+            todo_description: this.state.todo_description,
+            todo_responsible: this.state.todo_responsible,
+            todo_priority: this.state.todo_priority,
+            todo_completed: this.state.todo_completed
+        }
+
+        axios.post('http://localhost:3001/api/todos', newTodo)
+            .then(res => console.log(res.data));
+
         this.setState({
             todo_description: '',
             todo_responsible: '',
@@ -59,7 +70,7 @@ export default class CreateTodo extends Component {
                 
                 <Grid container justify="center" style={{marginTop: 20}}>
                     <Typography variant="h4" gutterBottom>
-                        Create Todo
+                        Create New Todo
                     </Typography>
                 </Grid>
 
@@ -99,7 +110,7 @@ export default class CreateTodo extends Component {
                                         control={<Radio checked={this.state.todo_priority==='high'} onChange={(e)=>this.setState({todo_priority: "high"})} />} 
                                         label="High" />
                             </Grid>
-                            
+
                             <Grid item xs={12}>
                                 <Button variant="contained" color="primary" type="submit">
                                     Submit
