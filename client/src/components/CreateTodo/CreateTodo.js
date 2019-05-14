@@ -40,12 +40,12 @@ export default class CreateTodo extends Component {
     onSubmitHandler(e) {
 
         e.preventDefault();
-
-        console.log(`Form submitted!`);
-        console.log(`Todo Description: ${this.state.todo_description}`);
-        console.log(`Todo Responsible: ${this.state.todo_responsible}`);
-        console.log(`Todo Priority: ${this.state.todo_priority}`);
+        // console.log(`Form submitted!`);
+        // console.log(`Todo Description: ${this.state.todo_description}`);
+        // console.log(`Todo Responsible: ${this.state.todo_responsible}`);
+        // console.log(`Todo Priority: ${this.state.todo_priority}`);
         
+        // Create a newTodo object based off the state (which is tied to the text inputs)
         const newTodo = {
             todo_description: this.state.todo_description,
             todo_responsible: this.state.todo_responsible,
@@ -53,9 +53,11 @@ export default class CreateTodo extends Component {
             todo_completed: this.state.todo_completed
         }
 
+        // Post the newTodo object to the backend
         axios.post('http://localhost:3001/api/todos', newTodo)
             .then(res => console.log(res.data));
 
+        // Clear state
         this.setState({
             todo_description: '',
             todo_responsible: '',

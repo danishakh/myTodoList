@@ -7,9 +7,9 @@ import EditIcon from '@material-ui/icons/Edit';
 const Todo = props => (
 
     <TableRow>
-        <TableCell>{props.todo.todo_description}</TableCell>
-        <TableCell>{props.todo.todo_responsible}</TableCell>
-        <TableCell>{props.todo.todo_priority}</TableCell>
+        <TableCell className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_description}</TableCell>
+        <TableCell className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_responsible}</TableCell>
+        <TableCell className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_priority}</TableCell>
         <TableCell>
             <IconButton component={Link} to={`/edit/${props.todo._id}`} size="small" color="inherit"><EditIcon /></IconButton>
         </TableCell>

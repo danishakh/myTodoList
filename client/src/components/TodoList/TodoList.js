@@ -13,11 +13,9 @@ export default class TodoList extends Component {
     }
 
     componentDidMount() {
-
         // NOTE TO SELF: having the loadCurrentTodoList() function defined inside componentDidMount() caused issues
         // when reloading the page. Data would not load due to XHR 'Network Error'. Always better to have a separate
         // function defined outside and then call it inside componentDidMount().
-
         this.loadCurrentTodoList();
     }
 
