@@ -5,14 +5,11 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
-import FormControl from '@material-ui/core/FormControl';
-import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
-import Icon from '@material-ui/core/Icon';
 
 
 // validation functions
-const required = value => (value == null ? 'Required' : undefined);
+// const required = value => (value == null ? 'Required' : undefined);
 
 export default class CreateTodo extends Component {
 

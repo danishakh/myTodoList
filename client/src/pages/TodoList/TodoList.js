@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Grid, Typography, Paper, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
-import Todo from '../Todo';
+import Todo from '../../components/Todo';
 
 
 export default class TodoList extends Component {

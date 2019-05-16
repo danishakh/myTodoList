@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { TableRow, TableCell, Button, IconButton, Icon, FormControlLabel, Checkbox } from '@material-ui/core';
+import { TableRow, TableCell, IconButton, FormControlLabel, Checkbox } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 
 const Todo = props => (

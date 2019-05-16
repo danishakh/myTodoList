@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import CreateTodo from "./components/CreateTodo";
-import EditTodo from "./components/EditTodo";
-import TodoList from "./components/TodoList";
+import CreateTodo from "./pages/CreateTodo";
+import EditTodo from "./pages/EditTodo";
+import TodoList from "./pages/TodoList";
 import { AppBar, Toolbar, Typography, Button, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 

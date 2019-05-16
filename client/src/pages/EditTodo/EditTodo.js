@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Checkbox, Grid, Typography, FormControlLabel, TextField, Radio, Button } from '@material-ui/core';
-import {Redirect} from 'react-router-dom';
+import { Checkbox, Grid, Typography, FormControlLabel, TextField, Radio } from '@material-ui/core';
+import { Redirect } from 'react-router-dom';
+import FormButton from '../../components/FormButton';
 
 export default class EditTodo extends Component {
 
@@ -139,17 +140,21 @@ export default class EditTodo extends Component {
                             </Grid>
 
                             <Grid item xs={12}>
-                                <FormControlLabel
+                                {/* <FormControlLabel
                                     control={<Button variant="contained" color="primary" type="submit">
                                     Update
                                 </Button>}
-                                />
+                                /> */}
 
-                                <FormControlLabel
+                                {/* <FormControlLabel
                                     control={<Button variant="contained" color="default" onClick={this.onCancelHandler}>
                                     Cancel
                                 </Button>}
-                                />
+                                /> */}
+
+                                <FormButton variant="contained" color="primary" buttonName="Update" type="submit" />
+                                <FormButton variant="contained" color="default" buttonName="Cancel" onClick={this.onCancelHandler} />
+
                             </Grid>
                         </Grid>
                     </form>
