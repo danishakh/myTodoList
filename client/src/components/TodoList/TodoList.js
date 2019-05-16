@@ -52,6 +52,7 @@ export default class TodoList extends Component {
                         <Table>
                             <TableHead>
                                 <TableRow>
+                                    <TableCell>Completed</TableCell>
                                     <TableCell>Description</TableCell>
                                     <TableCell>Responsible</TableCell>
                                     <TableCell>Priority</TableCell>

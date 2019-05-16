@@ -73,7 +73,7 @@ export default class EditTodo extends Component {
             })
 
         // Send the user back to main page - UPDATE: this did not update the UI in the main page
-        //this.props.history.push('/');
+        // this.props.history.push('/');
     }
 
     onCancelHandler(e) {
