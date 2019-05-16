@@ -77,6 +77,7 @@ export default class EditTodo extends Component {
         // this.props.history.push('/');
     }
 
+    // Set redirect to true so user can redirect back to main page without saving any changes
     onCancelHandler(e) {
         this.setState({redirect: true});
     }

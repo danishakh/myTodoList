@@ -32,7 +32,10 @@ export default class TodoList extends Component {
     todoListRow() {
         // Map through todos array in state and create a Todo item
         return this.state.todos.map((currentTodo, i) => {
-            return <Todo todo={currentTodo} key={i} />;
+            return <Todo 
+                        todo={currentTodo} 
+                        key={i}  
+                    />;
         });
     }
 
