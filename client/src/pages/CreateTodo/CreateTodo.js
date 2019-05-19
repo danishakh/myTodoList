@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Button from '@material-ui/core/Button';
-import Radio from '@material-ui/core/Radio';
+import { Grid, Typography, TextField, FormControlLabel, Button, Radio, Fab } from '@material-ui/core';
+import BackIcon from '@material-ui/icons/KeyboardArrowLeft';
 import { Redirect } from 'react-router-dom';
 
 
@@ -77,6 +74,13 @@ export default class CreateTodo extends Component {
 
         return (
             <Grid container justify="center">
+
+                <Grid item sm={8} style={{marginTop: 50}}>
+                    <Fab color='default' variant="extended" aria-label="Back" component={Link} to="/">
+                        <BackIcon />
+                        Back
+                    </Fab>
+                </Grid>
                 
                 <Grid container justify="center" style={{marginTop: 20}}>
                     <Typography variant="h4" gutterBottom>

@@ -29,11 +29,9 @@ class App extends Component {
         <div className="container">
           <AppBar position='static'>
             <Toolbar>
-              <Typography variant="h5" color="inherit">
+              <Typography variant="h5" color="inherit" component={Link} to="/">
                 My To-Do App
               </Typography>
-              <Button  component={Link} to="/" color="inherit">Todo List</Button>
-              <Button component={Link} to="/create" color="inherit">Create Todo</Button>
             </Toolbar>
           </AppBar>
         </div>

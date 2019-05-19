@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Grid, Typography, Paper, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
+import { Grid, Typography, Paper, Table, TableHead, TableRow, TableCell, TableBody, Fab } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 import Todo from '../../components/Todo';
+
 
 
 export default class TodoList extends Component {
@@ -39,6 +42,8 @@ export default class TodoList extends Component {
         axios.delete(`http://localhost:3001/api/todos/${id}`)
             .then(res => {
                 this.setState({
+
+                    // Filter out the todo which has the 'id' we want to delete
                     todos: this.state.todos.filter(todo => {
                         return todo._id !== id
                     })
@@ -57,7 +62,9 @@ export default class TodoList extends Component {
 
         axios.post(`http://localhost:3001/api/todos/${todo._id}`, updatedTodo)
             .then(res => {
-                console.log(res.data);
+                //console.log(res.data);
+
+                // Fetch the updated data and re-mount component
                 this.loadCurrentTodoList();
             })
     }
@@ -79,9 +86,16 @@ export default class TodoList extends Component {
         return (
             <Grid container justify="center">
 
-                
+                <Grid item sm={8} style={{marginTop: 50}}>
+                    <Fab color='primary' variant="extended" aria-label="Create New Todo" component={Link} to="/create">
+                        <AddIcon />
+                         New Todo
+                    </Fab>
 
-                <Grid sm={8} item style={{marginTop: 50}}>
+
+                </Grid>
+
+                <Grid sm={8} item style={{marginTop: 20}}>
                     <Paper md={12}>
                         <Table>
                             <TableHead>
