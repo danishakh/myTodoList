@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import Radio from '@material-ui/core/Radio';
+import { Redirect } from 'react-router-dom';
 
 
 // validation functions
@@ -22,7 +23,8 @@ export default class CreateTodo extends Component {
             todo_description: '',
             todo_responsible: '',
             todo_priority: '',
-            todo_completed: false
+            todo_completed: false,
+            redirect: false
         }
     }
 
@@ -52,18 +54,27 @@ export default class CreateTodo extends Component {
 
         // Post the newTodo object to the backend
         axios.post('http://localhost:3001/api/todos', newTodo)
-            .then(res => console.log(res.data));
+            .then(res => {
+                console.log(res.data)
+                
+                // Clear state and Redirect to Home
+                this.setState({
+                    todo_description: '',
+                    todo_responsible: '',
+                    todo_priority: '',
+                    todo_completed: false,
+                    redirect:true
+                })
+            });
 
-        // Clear state
-        this.setState({
-            todo_description: '',
-            todo_responsible: '',
-            todo_priority: '',
-            todo_completed: false
-        });
     }
 
     render() {
+
+        if (this.state.redirect)
+        return <Redirect to="/" />
+
+
         return (
             <Grid container justify="center">
                 

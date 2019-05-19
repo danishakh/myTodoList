@@ -16,7 +16,8 @@ export default class EditTodo extends Component {
             todo_description: '',
             todo_responsible: '',
             todo_priority: '',
-            todo_completed: false
+            todo_completed: false,
+            redirect: false
         }
     }
 
@@ -64,7 +65,7 @@ export default class EditTodo extends Component {
             todo_completed: this.state.todo_completed
         }
 
-        // Post the newTodo object to the backend
+        // Post the updated newTodo object to the backend
         axios.post(`http://localhost:3001/api/todos/${this.props.match.params.id}`, updatedTodo)
             .then(res => {
                 console.log(res.data);

@@ -8,6 +8,7 @@ export default class TodoList extends Component {
 
     constructor(props) {
         super(props);
+        this.onDeleteClick = this.onDeleteClick.bind(this);
         this.state = {todos:[]};
     }
 
@@ -29,12 +30,18 @@ export default class TodoList extends Component {
             })
     }
 
+    onDeleteClick(e) {
+        console.log(this.todo)
+    }
+    
+
     todoListRow() {
         // Map through todos array in state and create a Todo item
         return this.state.todos.map((currentTodo, i) => {
             return <Todo 
                         todo={currentTodo} 
-                        key={i}  
+                        key={i}
+                        onClick={this.onDeleteClick}
                     />;
         });
     }
@@ -49,8 +56,8 @@ export default class TodoList extends Component {
                     </Typography>
                 </Grid>
 
-                <Grid sm={6} item>
-                    <Paper>
+                <Grid sm={8} item>
+                    <Paper md={12}>
                         <Table>
                             <TableHead>
                                 <TableRow>
