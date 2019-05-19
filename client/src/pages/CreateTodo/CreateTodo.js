@@ -6,9 +6,6 @@ import BackIcon from '@material-ui/icons/KeyboardArrowLeft';
 import { Redirect } from 'react-router-dom';
 
 
-// validation functions
-// const required = value => (value == null ? 'Required' : undefined);
-
 export default class CreateTodo extends Component {
 
     constructor(props){

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Grid, Typography, Paper, Table, TableHead, TableRow, TableCell, TableBody, Fab } from '@material-ui/core';
+import { Grid, Paper, Table, TableHead, TableRow, TableCell, TableBody, Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import Todo from '../../components/Todo';
 
@@ -89,10 +89,8 @@ export default class TodoList extends Component {
                 <Grid item sm={8} style={{marginTop: 50}}>
                     <Fab color='primary' variant="extended" aria-label="Create New Todo" component={Link} to="/create">
                         <AddIcon />
-                         New Todo
+                        New Todo
                     </Fab>
-
-
                 </Grid>
 
                 <Grid sm={8} item style={{marginTop: 20}}>

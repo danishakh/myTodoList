@@ -3,21 +3,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import CreateTodo from "./pages/CreateTodo";
 import EditTodo from "./pages/EditTodo";
 import TodoList from "./pages/TodoList";
-import { AppBar, Toolbar, Typography, Button, IconButton } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
-const styles = {
-  root: {
-    flexGrow: 1,
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-};
 
 class App extends Component {
 
