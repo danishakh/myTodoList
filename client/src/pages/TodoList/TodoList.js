@@ -30,8 +30,18 @@ export default class TodoList extends Component {
             })
     }
 
-    onDeleteClick(e) {
-        console.log(this.todo)
+    // Remove Todo Item if Delete button is clicked in 'Todo' component
+    // Input 'id' received from child 'Todo' component
+    onDeleteClick(id) {
+        // console.log(id);
+        axios.delete(`http://localhost:3001/api/todos/${id}`)
+            .then(res => {
+                this.setState({
+                    todos: this.state.todos.filter(todo => {
+                        return todo._id !== id
+                    })
+                })
+            })
     }
     
 
@@ -50,13 +60,9 @@ export default class TodoList extends Component {
         return (
             <Grid container justify="center">
 
-                <Grid container justify="center" style={{marginTop: 20}}>
-                    <Typography variant="h4" gutterBottom>
-                        Todo List
-                    </Typography>
-                </Grid>
+                
 
-                <Grid sm={8} item>
+                <Grid sm={8} item style={{marginTop: 50}}>
                     <Paper md={12}>
                         <Table>
                             <TableHead>
