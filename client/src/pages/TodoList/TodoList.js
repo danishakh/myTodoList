@@ -9,6 +9,7 @@ export default class TodoList extends Component {
     constructor(props) {
         super(props);
         this.onDeleteClick = this.onDeleteClick.bind(this);
+        this.onCompletedClick = this.onCompletedClick.bind(this);
         this.state = {todos:[]};
     }
 
@@ -34,13 +35,30 @@ export default class TodoList extends Component {
     // Input 'id' received from child 'Todo' component
     onDeleteClick(id) {
         // console.log(id);
+        
         axios.delete(`http://localhost:3001/api/todos/${id}`)
             .then(res => {
                 this.setState({
                     todos: this.state.todos.filter(todo => {
                         return todo._id !== id
                     })
-                })
+                });
+            })
+    }
+
+    // Function to update TodoItem's 'completed' state from TodoList table
+    // Input 'id' received from child 'Todo' component
+    onCompletedClick(todo) {
+        //console.log(todo);
+
+        const updatedTodo = {
+            todo_completed: !todo.todo_completed
+        }
+
+        axios.post(`http://localhost:3001/api/todos/${todo._id}`, updatedTodo)
+            .then(res => {
+                console.log(res.data);
+                this.loadCurrentTodoList();
             })
     }
     
@@ -51,7 +69,8 @@ export default class TodoList extends Component {
             return <Todo 
                         todo={currentTodo} 
                         key={i}
-                        onClick={this.onDeleteClick}
+                        onDelete={this.onDeleteClick}
+                        onCheck={this.onCompletedClick}
                     />;
         });
     }

@@ -12,7 +12,7 @@ const Todo = props => {
         <TableRow>
             <TableCell>
                 <FormControlLabel 
-                    control={<Checkbox checked={props.todo.todo_completed} onChange={(e)=>props.onCheck(props.todo._id)} />}
+                    control={<Checkbox checked={props.todo.todo_completed} onChange={(e)=>props.onCheck(props.todo)} />}
                 />
             </TableCell>
             <TableCell style={{ width: '120%' }} className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_description}</TableCell>
@@ -24,7 +24,7 @@ const Todo = props => {
                         <IconButton component={Link} to={`/edit/${props.todo._id}`} size="small" color="inherit"><EditIcon /></IconButton>
                     </Grid>
                     <Grid item xs={6}>
-                        <IconButton onClick={(e)=>props.onClick(props.todo._id)} size="small" color="secondary"><DeleteIcon id={props.todo._id} /></IconButton>
+                        <IconButton onClick={(e)=>props.onDelete(props.todo._id)} size="small" color="secondary"><DeleteIcon id={props.todo._id} /></IconButton>
                     </Grid>
                 </Grid>   
             </TableCell>
