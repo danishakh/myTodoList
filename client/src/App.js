@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import CreateTodo from "./pages/CreateTodo";
 import EditTodo from "./pages/EditTodo";
 import TodoList from "./pages/TodoList";
+import NotFound from "./pages/NotFound";
 import { AppBar, Toolbar, Typography, Grid } from '@material-ui/core';
 
 
@@ -23,11 +24,12 @@ class App extends Component {
               </Toolbar>
             </AppBar>
           </div>
-
-          <Route path="/" exact component={TodoList} />
-          <Route path="/edit/:id" component={EditTodo} />
-          <Route path="/create" component={CreateTodo} />
-
+          <Switch>
+            <Route path="/" exact component={TodoList} />
+            <Route path="/edit/:id" component={EditTodo} />
+            <Route path="/create" component={CreateTodo} />
+            <Route component={NotFound} />
+          </Switch>
           <footer style={{marginTop: 100}}>
             <Typography variant="h6" align="center" gutterBottom>
               Built by Danish Akhtar using MERN stack and Material-UI
