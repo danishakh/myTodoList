@@ -5,6 +5,7 @@ const routes = require("./routes");
 const logger = require("morgan");
 const cors = require('cors');
 const keys = require("./keys.js");
+const path = require('path');
 
 
 const app = express();
@@ -17,14 +18,6 @@ app.use(logger("dev"));
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-// Serve up static assets when in production (heroku purposes)
-if(process.env.NODE_ENV === "production"){
-	app.use(express.static(client/build));
-}
-
-// Serve up static assets
-app.use(express.static("client/build"));
 
 // Set up a whitelist and check against it:
 // var whitelist = ['http://localhost:3001/api/'];
@@ -67,11 +60,20 @@ connection.once("open", () => {
 });
 
 
-// Send every request to the React app
+
 // Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+
+// Serve up static assets if node env is production
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static("client/build"));
+	
+	// Send every request to the React app (directing the /client/build/index.html file for every request that's not an API request)
+	app.get("*", function(req, res) {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	  });
+}
+
+
 
 
 // Start API Server
