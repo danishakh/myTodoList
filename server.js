@@ -4,9 +4,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const logger = require("morgan");
 const cors = require('cors');
-const keys = require('./keys.js');
-
-
+const keys = require("./keys.js");
 
 
 const app = express();
@@ -49,9 +47,13 @@ mongoose.Promise = global.Promise;
 
 //Connect to MongoDB
 mongoose.connect(
-	process.env.MONGODB_URI || `mongodb://${keys.mongo.user}:${keys.mongo.pass}@ds151805.mlab.com:51805/heroku_9wntptf6`,
+	process.env.MONGODB_URL || `mongodb://${keys.mongo.user}:${keys.mongo.pass}@ds151805.mlab.com:51805/heroku_9wntptf6`,
 	{ useNewUrlParser: true }
-);
+)
+// mongoose.connect(
+// 	process.env.MONGODB_URI || "mongodb://localhost/mytodolist",
+// 	{ useNewUrlParser: true }
+// );
 
 const connection = mongoose.connection;
 
