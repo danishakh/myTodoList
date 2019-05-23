@@ -23,6 +23,9 @@
     "morgan": "^1.9.1",
     "npm": "^6.8.0"
   },
+  "engines": {
+    "node":"^11"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/danishakh/myTodoList.git"
