@@ -18,6 +18,11 @@ app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Serve up static assets when in production (heroku purposes)
+if(process.env.NODE_ENV === "production"){
+	app.use(express.static(client/build));
+}
+
 // Serve up static assets
 app.use(express.static("client/build"));
 
