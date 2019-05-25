@@ -10,6 +10,8 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const MONGO_USER = process.env.MONGO_USER || keys.mongo.user;
+const MONGO_PASS = process.env.MONGO_PASS || keys.mongo.pass;
 
 // Configure middleware
 // Use morgan logger for logging requests
@@ -45,7 +47,7 @@ mongoose.Promise = global.Promise;
 
 //Connect to MongoDB
 mongoose.connect(
-	process.env.MONGODB_URL || `mongodb://${keys.mongo.user}:${keys.mongo.pass}@ds151805.mlab.com:51805/heroku_9wntptf6`,
+	process.env.MONGODB_URL || `mongodb://${MONGO_USER}:${MONGO_PASS}@ds151805.mlab.com:51805/heroku_9wntptf6`,
 	{ useNewUrlParser: true }
 )
 // mongoose.connect(
