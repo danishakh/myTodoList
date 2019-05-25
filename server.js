@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const logger = require("morgan");
 const cors = require('cors');
-// const keys = require("./keys.js");
+//const keys = require("./keys.js");
 const path = require('path');
 
 
@@ -51,7 +51,7 @@ if (process.env.NODE_ENV === 'production') {
 	
 	// Send every request to the React app (directing the /client/build/index.html file for every request that's not an API request)
 	app.get("/", function(req, res) {
-		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+		res.sendFile(path.join(__dirname, 'client/build/index.html'));
 	  });
 }
 
