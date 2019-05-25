@@ -50,9 +50,9 @@ if (process.env.NODE_ENV === 'production') {
 	app.use(express.static("client/build"));
 	
 	// Send every request to the React app (directing the /client/build/index.html file for every request that's not an API request)
-	// app.get("/", function(req, res) {
-	// 	res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-	//   });
+	app.get("/", function(req, res) {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	});
 }
 
 
