@@ -25,7 +25,7 @@ export default class TodoList extends Component {
 
     // Get all todos from backend
     loadCurrentTodoList = () => {
-        axios.get('http://localhost:3001/api/todos')
+        axios.get('/api/todos')
             .then(res => {
                 this.setState({todos: res.data});
             })
@@ -39,7 +39,7 @@ export default class TodoList extends Component {
     onDeleteClick(id) {
         // console.log(id);
         
-        axios.delete(`http://localhost:3001/api/todos/${id}`)
+        axios.delete(`/api/todos/${id}`)
             .then(res => {
                 this.setState({
 
@@ -60,7 +60,7 @@ export default class TodoList extends Component {
             todo_completed: !todo.todo_completed
         }
 
-        axios.post(`http://localhost:3001/api/todos/${todo._id}`, updatedTodo)
+        axios.post(`/api/todos/${todo._id}`, updatedTodo)
             .then(res => {
                 //console.log(res.data);
 

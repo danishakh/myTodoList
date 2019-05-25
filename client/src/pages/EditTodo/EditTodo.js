@@ -26,7 +26,7 @@ export default class EditTodo extends Component {
     }
 
     getCurrentTodoItem() {
-        axios.get(`http://localhost:3001/api/todos/${this.props.match.params.id}`)
+        axios.get(`/api/todos/${this.props.match.params.id}`)
             .then(res => {
                 this.setState({
                     todo_description: res.data.todo_description,
@@ -66,7 +66,7 @@ export default class EditTodo extends Component {
         }
 
         // Post the updated newTodo object to the backend
-        axios.post(`http://localhost:3001/api/todos/${this.props.match.params.id}`, updatedTodo)
+        axios.post(`/api/todos/${this.props.match.params.id}`, updatedTodo)
             .then(res => {
                 console.log(res.data);
 

@@ -47,7 +47,7 @@ export default class CreateTodo extends Component {
         }
 
         // Post the newTodo object to the backend
-        axios.post('http://localhost:3001/api/todos', newTodo)
+        axios.post('/api/todos', newTodo)
             .then(res => {
                 console.log(res.data)
                 
