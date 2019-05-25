@@ -42,6 +42,20 @@ app.use(cors());
 // Add routes
 app.use(routes);
 
+
+// Define any API routes before this runs
+
+// Serve up static assets if node env is production
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static("client/build"));
+	
+	// Send every request to the React app (directing the /client/build/index.html file for every request that's not an API request)
+	app.get("*", function(req, res) {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	  });
+}
+
+
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 
@@ -60,22 +74,6 @@ const connection = mongoose.connection;
 connection.once("open", () => {
 	console.log("MongoDB Connection Established");
 });
-
-
-
-// Define any API routes before this runs
-
-// Serve up static assets if node env is production
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static("client/build"));
-	
-	// Send every request to the React app (directing the /client/build/index.html file for every request that's not an API request)
-	app.get("*", function(req, res) {
-		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-	  });
-}
-
-
 
 
 // Start API Server
