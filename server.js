@@ -4,14 +4,14 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const logger = require("morgan");
 const cors = require('cors');
-const keys = require("./keys.js");
+// const keys = require("./keys.js");
 const path = require('path');
 
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const MONGO_USER = process.env.MONGO_USER || keys.mongo.user;
-const MONGO_PASS = process.env.MONGO_PASS || keys.mongo.pass;
+const MONGO_USER = process.env.MONGO_USER;
+const MONGO_PASS = process.env.MONGO_PASS;
 
 // Configure middleware
 // Use morgan logger for logging requests
