@@ -19,13 +19,13 @@ Change the mongo URL to either your localhost MongoDB database instance or to yo
 Install all packages and run the application
 
 `# Install dependencies for server`
-npm install
+`npm install`
 
 `# Install dependencies for client`
-npm run client-install
+`npm run client-install`
 
 `# Run the client & server with concurrently`
-npm run dev
+`npm run dev`
 
 
 ## Live Website
