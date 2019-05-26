@@ -24,21 +24,24 @@ class App extends Component {
               </Toolbar>
             </AppBar>
           </div>
+
           <Switch>
             <Route path="/" exact component={TodoList} />
             <Route path="/edit/:id" component={EditTodo} />
             <Route path="/create" component={CreateTodo} />
             <Route component={NotFound} />
           </Switch>
+
           <footer style={{marginTop: 100}}>
             <Typography variant="h6" align="center" gutterBottom>
-              Built by Danish Akhtar using MERN stack and Material-UI
+              Built using MERN stack and Material-UI
             </Typography>
-            <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+            <Typography variant="caption" align="center" color="textSecondary" component="p">
               To check out the source code, please click <a href="https://github.com/danishakh/myTodoList">here</a>
             </Typography>
           </footer>
-      </Router>
+
+        </Router>
       </Grid>
     );
   }

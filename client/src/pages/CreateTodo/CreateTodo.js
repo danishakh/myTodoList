@@ -49,7 +49,7 @@ export default class CreateTodo extends Component {
         // Post the newTodo object to the backend
         axios.post('/api/todos', newTodo)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 
                 // Clear state and Redirect to Home
                 this.setState({

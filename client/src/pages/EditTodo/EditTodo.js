@@ -68,7 +68,7 @@ export default class EditTodo extends Component {
         // Post the updated newTodo object to the backend
         axios.post(`/api/todos/${this.props.match.params.id}`, updatedTodo)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
 
                 // Set redirect to true so we can go back to main page
                 this.setState({redirect: true});

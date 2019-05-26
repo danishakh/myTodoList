@@ -20,7 +20,7 @@ export default class CreateTodo extends Component {
                     </Fab>
                 </Grid>
 
-                <img src="https://image.freepik.com/free-vector/funny-error-404-background-design_1167-219.jpg"></img>
+                <img alt="404 Page Not Found!" src="https://image.freepik.com/free-vector/funny-error-404-background-design_1167-219.jpg"></img>
             </Grid>
         )
     }
